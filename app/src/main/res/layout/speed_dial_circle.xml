@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <AbsoluteLayout
+        android:id="@+id/fab_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_circle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_x="83dp"
+            android:layout_y="173dp"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="@null"
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            android:visibility="visible" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_circle_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:layout_toStartOf="@+id/fab_circle"
+            android:layout_x="52dp"
+            android:layout_y="207dp"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="Dummy "
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_circle_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fab_circle_1"
+            android:layout_gravity="left|center_vertical"
+            android:layout_toStartOf="@+id/fab_circle"
+            android:layout_x="50dp"
+            android:layout_y="291dp"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="@null"
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_action_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fab_circle"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="left|bottom|right"
+            android:layout_x="79dp"
+            android:layout_y="168dp"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="@null"
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_circle_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fab_action_5"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_toEndOf="@+id/fab_circle"
+            android:layout_x="43dp"
+            android:layout_y="248dp"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="@null"
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_action_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="right|bottom"
+            android:layout_toEndOf="@+id/fab_circle"
+            android:layout_x="302dp"
+            android:layout_y="398dp"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="@null"
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            app:fabSize="mini" />
+    </AbsoluteLayout>
+
+
+</merge>
