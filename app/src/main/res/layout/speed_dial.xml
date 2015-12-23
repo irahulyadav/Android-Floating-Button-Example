@@ -9,14 +9,38 @@
         android:clipChildren="false">
 
         <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_action_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fab_action_4"
+            android:layout_alignEnd="@+id/fab"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="@null"
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_action_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/fab_action_3"
+            android:layout_alignEnd="@+id/fab"
+            android:background="@drawable/oval_shape"
+            android:contentDescription="@null"
+            android:onClick="onClick"
+            android:src="@drawable/plus"
+            app:fabSize="mini" />
+
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_action_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/fab_action_2"
             android:layout_alignEnd="@+id/fab"
+            android:background="@drawable/oval_shape"
             android:contentDescription="@null"
             android:onClick="onClick"
-            android:background="@drawable/oval_shape"
             android:src="@drawable/plus"
             app:fabSize="mini" />
 
@@ -26,10 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/fab_action_1"
             android:layout_alignEnd="@id/fab"
+            android:background="@drawable/oval_shape"
             android:contentDescription="@null"
             android:onClick="onClick"
             android:src="@drawable/plus"
-            android:background="@drawable/oval_shape"
             app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton
@@ -38,10 +62,10 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/fab"
             android:layout_alignStart="@id/fab_action_2"
+            android:background="@drawable/oval_shape"
             android:contentDescription="Dummy "
             android:onClick="onClick"
             android:src="@drawable/plus"
-            android:background="@drawable/oval_shape"
             app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton

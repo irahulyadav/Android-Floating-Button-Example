@@ -1,4 +1,4 @@
-package com.floating.example.test.view;
+package com.floating.example.test.controller;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -9,8 +9,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-
-import com.floating.example.test.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +22,7 @@ public class SpeedDial implements View.OnClickListener, ViewTreeObserver.OnPreDr
     private ViewGroup viewGroup;
     private boolean expanded = false;
     private FloatingActionButton fab;
+    private ExpandListener expandListener;
 
     private HashMap<View, Float> viewMap = new HashMap<>();
 
@@ -51,6 +50,10 @@ public class SpeedDial implements View.OnClickListener, ViewTreeObserver.OnPreDr
         }
     }
 
+    public void setExpandListener(ExpandListener expandListener) {
+        this.expandListener = expandListener;
+    }
+
     private Animator createCollapseAnimator(View view, float offset) {
         return ObjectAnimator.ofFloat(view, TRANSLATION_Y, 0, offset)
                 .setDuration(view.getContext().getResources().getInteger(android.R.integer.config_mediumAnimTime));
@@ -62,7 +65,9 @@ public class SpeedDial implements View.OnClickListener, ViewTreeObserver.OnPreDr
     }
 
     private void collapseFab() {
-        fab.setImageResource(R.drawable.animated_minus);
+        if (expandListener != null) {
+            expandListener.onCollapse(fab);
+        }
         AnimatorSet animatorSet = new AnimatorSet();
         List<Animator> animators = new ArrayList<>();
         for (View view : viewMap.keySet()) {
@@ -74,7 +79,9 @@ public class SpeedDial implements View.OnClickListener, ViewTreeObserver.OnPreDr
     }
 
     private void expandFab() {
-        fab.setImageResource(R.drawable.animated_plus);
+        if (expandListener != null) {
+            expandListener.onExpand(fab);
+        }
         AnimatorSet animatorSet = new AnimatorSet();
         List<Animator> animators = new ArrayList<>();
         for (View view : viewMap.keySet()) {
@@ -108,7 +115,21 @@ public class SpeedDial implements View.OnClickListener, ViewTreeObserver.OnPreDr
         return fab;
     }
 
+    public void setOnItemClickListener(View.OnClickListener onItemClickListener) {
+        if (onItemClickListener != null) {
+            for (View view : viewMap.keySet()) {
+                view.setOnClickListener(onItemClickListener);
+            }
+        }
+    }
+
     public boolean isExpanded() {
         return expanded;
+    }
+
+    public static interface ExpandListener {
+        public void onExpand(FloatingActionButton button);
+
+        public void onCollapse(FloatingActionButton button);
     }
 }

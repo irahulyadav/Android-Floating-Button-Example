@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.floating.example.test.view.SpeedDial;
+import com.floating.example.test.controller.SpeedDial;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, SpeedDial.ExpandListener {
     private SpeedDial speedDial;
 
     @Override
@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         speedDial = new SpeedDial((FloatingActionButton) findViewById(R.id.fab), (ViewGroup) findViewById(R.id.fab_container));
+        speedDial.setExpandListener(this);
 
     }
 
@@ -28,4 +29,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+    @Override
+    public void onExpand(FloatingActionButton button) {
+        button.setImageResource(R.drawable.minus);
+    }
+
+    @Override
+    public void onCollapse(FloatingActionButton button) {
+        button.setImageResource(R.drawable.plus);
+    }
 }
